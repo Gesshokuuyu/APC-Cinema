@@ -1,10 +1,10 @@
-#CineDev
+# CineDev
 
 Sistema de Gerenciamento de Sessões de Cinema em Python
 
 
 
-#Sobre o Projeto
+# Sobre o Projeto
 
 O CineDev é um sistema desenvolvido em Python para gerenciar sessões de cinema, utilizando listas compostas como estrutura de dados principal e arquivos texto (.txt) para persistência das informações.
 
@@ -12,19 +12,19 @@ O programa permite armazenar, consultar e atualizar dados sobre filmes e sessõe
 
 
 
-#Problema de Pesquisa
+# Problema de Pesquisa
 
 Como utilizar listas compostas e arquivos texto em Python para armazenar, recuperar e gerenciar informações de sessões de cinema de forma eficiente?
 
 
 
-#Hipótese
+# Hipótese
 
 A combinação de listas compostas com arquivos .txt possibilita a construção de um sistema simples, organizado e funcional, permitindo a persistência dos dados mesmo após o encerramento da execução do programa.
 
 
 
-#Funcionalidades
+# Funcionalidades
 
 Cadastro de filmes e sessões
 Consulta de informações por título ou horário
@@ -34,13 +34,13 @@ Listagem de todas as sessões disponíveis
 
 
 
-#Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 TecnologiaUsoPython 3.xLinguagem principalListas CompostasEstrutura de dadosArquivos .txtPersistência de dados
 
 
 
-#Estrutura do Projeto
+# Estrutura do Projeto
 
 CineDev/
 │
@@ -51,7 +51,7 @@ CineDev/
 
 
 
-#Como Executar
+# Como Executar
 
 Pré-requisitos: Python 3.x instalado.
 
@@ -62,7 +62,7 @@ python cinedev.py
 
 
 
-#Contexto Acadêmico
+# Contexto Acadêmico
 
 Este projeto foi desenvolvido como trabalho acadêmico com foco em:
 
@@ -72,6 +72,6 @@ Organização e persistência de dados sem uso de banco de dados
 
 
 
-#Autores
+# Autores
 
 Brayan Schmitz; Kevin Licheski Antunes; Igor Francisco Antunes Paulo; Andrei Luciano Dietrich; Samantha Pâmella Schramm
