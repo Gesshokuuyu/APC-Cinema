@@ -45,7 +45,7 @@ TecnologiaUsoPython 3.xLinguagem principalListas CompostasEstrutura de dadosArqu
 CineDev/  
 │  
 ├── Src                  # Diretório principal do código-fonte  
-├── database             # Diretório contendo os arquivos de banco de dados  
+├── database             # Diretório contendo os arquivos txt das salas salvos  
 ├── .gitignore           # Arquivo de configuração do Git  
 ├── README.md            # Documentação do projeto  
 ├── absolute.txt         # Arquivo auxiliar de dados  
