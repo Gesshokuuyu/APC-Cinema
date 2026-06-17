@@ -14,6 +14,13 @@ filmes = [
     ["Piratas do Caribe 2", 151, 5, 5, 10]
 ]
 
+filmesForaCartaz = [
+    2
+]
+
+for filme_out in filmesForaCartaz:
+    filmes.pop(filme_out)
+
 print("=" * 40)
 print("🎬 BEM-VINDO AO CINEMA 🎬")
 print("=" * 40)
