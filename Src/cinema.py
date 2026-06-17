@@ -1,6 +1,8 @@
 from Src.interfaceHelpers import limpaTerminal
+from Src.fileHelper import buscaSala
 
-def renderizarSalaInicial(fileiras:int, assentos:int):
+def renderizarSalaInicial(idSala: int, fileiras: int, assentos: int):
+    salaSalva = buscaSala(idSala)
     sala = []
 
     print("  ", end="")
@@ -10,11 +12,22 @@ def renderizarSalaInicial(fileiras:int, assentos:int):
 
     for fileira in range(1, fileiras + 1):
         print(f"{fileira:<3}", end="")
-        for assento in range(1, assentos + 1):
-            print("[ ]  ", end="")
 
-            # False = livre
-            sala.append([fileira, assento, False])
+        for assento in range(1, assentos + 1):
+
+            ocupado = False
+
+            for lugar in salaSalva:
+                if lugar[0] == fileira and lugar[1] == assento:
+                    ocupado = lugar[2]
+                    break
+
+            if ocupado:
+                print("[X]  ", end="")
+                sala.append([fileira, assento, True])
+            else:
+                print("[ ]  ", end="")
+                sala.append([fileira, assento, False])
 
         print()
 
@@ -41,10 +54,11 @@ def renderizaSala(sala: list, fileiras: int, assentos: int):
 
 
 def _visual_sala(filmeEscolhido: list):
+    idSala = filmeEscolhido[2]
     fileiras = filmeEscolhido[3]
     assentos = filmeEscolhido[4]
 
-    sala, assentosDisponiveis = renderizarSalaInicial(fileiras, assentos)
+    sala, assentosDisponiveis = renderizarSalaInicial(idSala, fileiras, assentos)
 
     print("\n")
     print("=" * 77)
@@ -114,7 +128,7 @@ def _visual_sala(filmeEscolhido: list):
             renderizaSala(sala, fileiras, assentos)
 
             print()
-            print("Continuar cadasro? [S/N]")
+            print("Continuar cadastro? [S/N]")
             escolha = input("> ")
             if(escolha.lower().strip() == 'n'):
                 cadastrando = False

@@ -2,8 +2,9 @@
 # [nome, duracao_minutos, id_sala, quantidade_fileiras, assentos_por_fileira]
 #  [0]        [1]           [2]            [3]                  [4]
 
-
+from Src.fileHelper import salvarSala
 from Src.cinema import (_visual_sala)
+from Src.interfaceHelpers import limpaTerminal
 
 filmes = [
     ["O Lobo de Wall Street", 180, 1, 5, 10],
@@ -17,28 +18,39 @@ print("=" * 40)
 print("🎬 BEM-VINDO AO CINEMA 🎬")
 print("=" * 40)
 
-print("\nFilmes em cartaz:\n")
+escolherFilmes = "S"
 
-for indice, filme in enumerate(filmes):
-    print(f"[{indice}] {filme[0]}")
-    print(f"    ⏱ Duração: {filme[1]} minutos")
-    print("-" * 40)
+while escolherFilmes == "S":
+        
+    print("\nFilmes em cartaz:\n")
 
-# Seleção do filme
-while True:
-    try:
-        escolha = int(input("\nSelecione o número do filme: "))
+    for indice, filme in enumerate(filmes):
+        print(f"[{indice}] {filme[0]}")
+        print(f"    ⏱ Duração: {filme[1]} minutos")
+        print("-" * 40)
 
-        if 0 <= escolha < len(filmes):
-            break
+    # Seleção do filme
+    while True:
+        try:
+            escolha = int(input("\nSelecione o número do filme: "))
 
-        print("Filme inválido. Tente novamente.")
+            if 0 <= escolha < len(filmes):
+                break
 
-    except ValueError:
-        print("Digite apenas números.")
+            print("Filme inválido. Tente novamente.")
 
-filme_selecionado = filmes[escolha]
+        except ValueError:
+            print("Digite apenas números.")
 
-sala = _visual_sala(filme_selecionado)
+    filme_selecionado = filmes[escolha]
 
-print("Deseja salvar a sala cadastrada?")
+    sala = _visual_sala(filme_selecionado)
+
+    salvar = input("Deseja salvar os assentos reservados? [S/N]")
+
+    if(salvar.upper() == 'S'):
+        salvarSala(sala, filme_selecionado[2])
+        limpaTerminal()
+        print("Assentos salvos!")
+
+    escolherFilmes = input("Deseja escolher outro filme? [S/N]")
