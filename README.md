@@ -44,10 +44,12 @@ TecnologiaUsoPython 3.xLinguagem principalListas CompostasEstrutura de dadosArqu
 
 CineDev/  
 │  
-├── cinedev.py              # Arquivo principal do sistema  
-├── filmes.txt              # Base de dados de filmes  
-├── sessoes.txt             # Base de dados de sessões  
-└── README.md               # Documentação do projeto  
+├── Src                  # Diretório principal do código-fonte  
+├── database             # Diretório contendo os arquivos txt das salas salvos  
+├── .gitignore           # Arquivo de configuração do Git  
+├── README.md            # Documentação do projeto  
+├── absolute.txt         # Arquivo auxiliar de dados  
+└── main.py              # Arquivo principal do sistema  
 
 
 
