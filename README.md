@@ -42,12 +42,12 @@ TecnologiaUsoPython 3.xLinguagem principalListas CompostasEstrutura de dadosArqu
 
 # Estrutura do Projeto
 
-CineDev/
-│
-├── cinedev.py          # Arquivo principal do sistema
-├── filmes.txt          # Base de dados de filmes
-├── sessoes.txt         # Base de dados de sessões
-└── README.md           # Documentação do projeto
+CineDev/  
+│  
+├── cinedev.py            # Arquivo principal do sistema  
+├── filmes.txt            # Base de dados de filmes  
+├── sessoes.txt           # Base de dados de sessões  
+└── README.md             # Documentação do projeto  
 
 
 
