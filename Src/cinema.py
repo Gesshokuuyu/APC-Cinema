@@ -54,19 +54,31 @@ def renderizaSala(sala: list, fileiras: int, assentos: int):
 
 
 def _visual_sala(filmeEscolhido: list):
+    # Pega os dados da sala a partir do filme selecionado
     idSala = filmeEscolhido[2]
     fileiras = filmeEscolhido[3]
     assentos = filmeEscolhido[4]
 
-    sala, assentosDisponiveis = renderizarSalaInicial(idSala, fileiras, assentos)
+    # Cria a estrutura inicial da sala e conta os assentos disponíveis
+    sala, assentosDisponiveis = renderizarSalaInicial(
+        idSala,
+        fileiras,
+        assentos
+    )
 
     print("\n")
     print("=" * 77)
+
+    # Inicializa as variveis de controle do processo de cadastro de espectadores
     cadastrando = True
     cadastros = 0
 
-    while cadastros < assentosDisponiveis and cadastrando == True:
+    # Continua enquanto houver assentos livres e o usuário desejar cadastrar
+    while cadastros < assentosDisponiveis and cadastrando:
+
         limpaTerminal()
+
+        # Exibe o filme selecionado
         print("FILME SELECIONADO:")
         titulo = filmeEscolhido[0]
         largura = len(titulo) + 4
@@ -74,36 +86,47 @@ def _visual_sala(filmeEscolhido: list):
         print("+" + "-" * largura + "+")
         print(f"|  {titulo.upper()}  |")
         print("+" + "-" * largura + "+")
+
+        # Mostra o mapa atual da sala
         renderizaSala(sala, fileiras, assentos)
 
         print("-" * 18)
         print(f"Espectador N° {cadastros + 1}")
         print("-" * 18)
 
+        # Lista as fileiras disponíveis
         for f in range(fileiras, 0, -1):
             print(f"[{f}] - Fileira {f}")
 
-        fileiraSelecionada = int(input("Escolha uma fileira disponível:\n> "))
+        # Solicita a escolha da fileira
+        fileiraSelecionada = int(
+            input("Escolha uma fileira disponível:\n> ")
+        )
 
+        # Valida a fileira informada
         while fileiraSelecionada not in range(1, fileiras + 1):
             print("Informe uma fileira válida.")
             fileiraSelecionada = int(input("> "))
 
         print("-" * 18)
 
+        # Lista os assentos disponíveis na fileira
         for i in range(1, assentos + 1):
             print(f"[{i}] - Assento {i}")
 
         assentoLivre = False
 
+        # Continua solicitando assentos até encontrar um livre
         while not assentoLivre:
 
             assentoSelecionado = int(input("Selecione um assento: "))
 
+            # Valida o número do assento
             while assentoSelecionado not in range(1, assentos + 1):
                 print("Informe um assento válido.")
                 assentoSelecionado = int(input("> "))
 
+            # Procura o assento escolhido na estrutura da sala
             for lugar in sala:
 
                 if (
@@ -111,9 +134,11 @@ def _visual_sala(filmeEscolhido: list):
                     lugar[1] == assentoSelecionado
                 ):
 
+                    # Verifica se o assento já está ocupado
                     if lugar[2]:
                         print("Assento já ocupado! Escolha outro.")
                     else:
+                        # Reserva o assento
                         lugar[2] = True
                         cadastros += 1
                         assentoLivre = True
@@ -124,15 +149,18 @@ def _visual_sala(filmeEscolhido: list):
                         )
 
                     break
-            
+
+            # Atualiza a visualização da sala após a reserva
             renderizaSala(sala, fileiras, assentos)
 
+            # Pergunta se deseja continuar cadastrando espectadores
             print()
             print("Continuar cadastro? [S/N]")
             escolha = input("> ")
-            if(escolha.lower().strip() == 'n'):
+
+            if escolha.lower().strip() == 'n':
                 cadastrando = False
 
-
-    return sala  # retorna a sala com os assentos atualizados
+    # Retorna a sala atualizada com os assentos reservados
+    return sala
     
